@@ -5,7 +5,8 @@ $(function () {
   // ✨VERSION NUMBER
   const vNo = "0.9.16";
   const vDate = "01.05.25";
-  const vMsg = "clean up<br />removed titanpoint<br />added archived ritual night tracks";
+  const vMsg =
+    "clean up<br />removed titanpoint<br />added archived ritual night tracks";
   $(".sm-version-no").html(vNo);
   $("#sm-loading-date").html(vDate);
 
@@ -172,7 +173,7 @@ $(function () {
         .closest(".window")
         .find(".window-toggle-button")
         .html(
-          "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='var(--color-w-sm)' viewBox='0 0 16 16'><path d='M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z' /></svg>"
+          "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='var(--color-w-sm)' viewBox='0 0 16 16'><path d='M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z' /></svg>",
         );
       // other window's buttons disable
       $(".window-toggle-button")
@@ -206,8 +207,8 @@ $(function () {
               .attr("style")
               .replace(
                 "width: " + $(thing).closest(".window").width() + "px",
-                "width: max-content"
-              )
+                "width: max-content",
+              ),
           );
       }, 1);
 
@@ -216,7 +217,7 @@ $(function () {
         .closest(".window")
         .find(".window-toggle-button")
         .html(
-          "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='var(--color-w-sm)' viewBox='0 0 16 16'><path d='M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z'/></svg>"
+          "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='var(--color-w-sm)' viewBox='0 0 16 16'><path d='M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z'/></svg>",
         );
       // button enable
       $(".window-toggle-button")
@@ -235,7 +236,7 @@ $(function () {
     startMenuOpened = true;
   }
   function startMenuClose() {
-    $("#start-menu").animate({ top: "100vh" }, 350), "easeOutQuad";
+    ($("#start-menu").animate({ top: "100vh" }, 350), "easeOutQuad");
     startMenuOpened = false;
   }
 
@@ -266,14 +267,14 @@ $(function () {
         top: "-=1%",
         left: "+=1%",
       },
-      150
+      150,
     ); // animate full desktop - shrink
     $("#sm-desktop").animate(
       {
         height: "0%",
         top: "+=51%",
       },
-      900
+      900,
     ); // animate full desktop - collapse
     $("#task-bar").animate({ backgroundColor: "#f23e3e" }, 600); // change task bar color
     $("#stuff-space").animate({ backgroundColor: "#f23e3e" }, 600); // change stuff space color
@@ -301,45 +302,45 @@ $(function () {
   var taskBarTime = setInterval(() => {
     $("#tb-time").html(
       ("0" + new Date(Date.now()).getHours()).slice(-2) +
-      ":" +
-      ("0" + new Date(Date.now()).getMinutes()).slice(-2) +
-      ":" +
-      ("0" + new Date(Date.now()).getSeconds()).slice(-2)
+        ":" +
+        ("0" + new Date(Date.now()).getMinutes()).slice(-2) +
+        ":" +
+        ("0" + new Date(Date.now()).getSeconds()).slice(-2),
     );
     if (
       new Date(Date.now()).getHours() < 5 ||
       new Date(Date.now()).getHours() >= 19
     ) {
       $("#time-of-day-icon").html(
-        "<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='var(--color-w-sm)' class='bi bi-moon-stars-fill' viewBox='0 0 16 16'><path d='M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z'/><path d='M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z'/></svg>"
+        "<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='var(--color-w-sm)' class='bi bi-moon-stars-fill' viewBox='0 0 16 16'><path d='M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z'/><path d='M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z'/></svg>",
       );
     } else if (
       new Date(Date.now()).getHours() >= 5 &&
       new Date(Date.now()).getHours() < 7
     ) {
       $("#time-of-day-icon").html(
-        "<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='var(--color-w-sm)' class='bi bi-sunrise-fill' viewBox='0 0 16 16'><path d='M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z'/></svg>"
+        "<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='var(--color-w-sm)' class='bi bi-sunrise-fill' viewBox='0 0 16 16'><path d='M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z'/></svg>",
       );
     } else if (
       new Date(Date.now()).getHours() >= 17 &&
       new Date(Date.now()).getHours() < 19
     ) {
       $("#time-of-day-icon").html(
-        "<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='var(--color-w-sm)' class='bi bi-sunset-fill' viewBox='0 0 16 16'><path d='M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z'/></svg>"
+        "<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='var(--color-w-sm)' class='bi bi-sunset-fill' viewBox='0 0 16 16'><path d='M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z'/></svg>",
       );
     } else {
       $("#time-of-day-icon").html(
-        "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' class='bi bi-sun-fill' viewBox='0 0 16 16'><path d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z'/></svg>"
+        "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' class='bi bi-sun-fill' viewBox='0 0 16 16'><path d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z'/></svg>",
       );
     }
   }, 1000);
 
   // >>>> task bar icons
   const tooltipTriggerList = document.querySelectorAll(
-    '[data-bs-toggle="tooltip"]'
+    '[data-bs-toggle="tooltip"]',
   );
   const tooltipList = [...tooltipTriggerList].map(
-    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
   );
   $("#desktop-fullscreen-button").click(function () {
     if (
@@ -352,7 +353,7 @@ $(function () {
         document.documentElement.mozRequestFullScreen();
       } else if (document.documentElement.webkitRequestFullScreen) {
         document.documentElement.webkitRequestFullScreen(
-          Element.ALLOW_KEYBOARD_INPUT
+          Element.ALLOW_KEYBOARD_INPUT,
         );
       }
     } else {
@@ -414,7 +415,7 @@ $(function () {
     windowHeight,
     windowContent,
     clickedApp,
-    windowName
+    windowName,
   ) {
     $(windowId).fadeIn(100);
 
@@ -441,7 +442,7 @@ $(function () {
         $(windowId)
           .closest(".window")
           .attr("style")
-          .replace("width: " + windowWidth, "width: max-content !important")
+          .replace("width: " + windowWidth, "width: max-content !important"),
       );
     }, 100 + 1);
 
@@ -471,10 +472,10 @@ $(function () {
             .find(".window-content-folder")
             .append(
               "<script>" +
-              selectWindow +
-              mediaOpen +
-              randomWindowLocation +
-              "</script>"
+                selectWindow +
+                mediaOpen +
+                randomWindowLocation +
+                "</script>",
             );
         });
     }
@@ -492,11 +493,11 @@ $(function () {
     } else {
       $("#media-viewer-holder").append(
         "<div class='window media-viewer' id='" +
-        newID +
-        "'>" +
-        "<div class='window-controls no-fs d-flex justify-content-end'> <p class='window-header-text'>" +
-        "</p> <button class='window-close-button d-flex align-items-center justify-content-center' > <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' viewBox='0 0 16 16' > <path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z' /> </svg> </button> </div>" +
-        "<div class='window-content-fixed'> <div class='viewer-loader'><div class='loader'><div class='loader-sub'></div></div></div> <div class='viewer-content'></div> </div></div>"
+          newID +
+          "'>" +
+          "<div class='window-controls no-fs d-flex justify-content-end'> <p class='window-header-text'>" +
+          "</p> <button class='window-close-button d-flex align-items-center justify-content-center' > <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' viewBox='0 0 16 16' > <path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z' /> </svg> </button> </div>" +
+          "<div class='window-content-fixed'> <div class='viewer-loader'><div class='loader'><div class='loader-sub'></div></div></div> <div class='viewer-content'></div> </div></div>",
       );
 
       $(newIDSelector)
@@ -560,7 +561,7 @@ $(function () {
     nextLvlId,
     parentName,
     lastLvlName,
-    nextLvlName
+    nextLvlName,
   ) {
     $(thisId).closest(".folder-lvl-1").hide();
     $(thisId).closest(".folder-lvl-2").hide();
@@ -573,10 +574,10 @@ $(function () {
         .find(".folder-path")
         .html(
           "<inline class='folder-back-button'>" +
-          backSvg +
-          lastLvlName +
-          "</inline>/" +
-          nextLvlName
+            backSvg +
+            lastLvlName +
+            "</inline>/" +
+            nextLvlName,
         );
     } else {
       $(nextLvlId)
@@ -584,13 +585,13 @@ $(function () {
         .find(".folder-path")
         .html(
           "<inline class='folder-back-button'>" +
-          backSvg +
-          parentName +
-          "</inline>/" +
-          "<inline class='folder-back-button-lvl2'>" +
-          lastLvlName +
-          "</inline>/" +
-          nextLvlName
+            backSvg +
+            parentName +
+            "</inline>/" +
+            "<inline class='folder-back-button-lvl2'>" +
+            lastLvlName +
+            "</inline>/" +
+            nextLvlName,
         );
 
       $(".folder-back-button-lvl2").click(function () {
@@ -607,7 +608,7 @@ $(function () {
     parentId,
     currentId,
     backToId,
-    currentName
+    currentName,
   ) {
     $(currentId).hide();
 
@@ -649,7 +650,7 @@ $(function () {
       minResizeH,
       "/stuff_machine/start_menu_windows/about_window.html",
       $(this),
-      "About Stuff Machine"
+      "About Stuff Machine",
     );
     startMenuClose();
   });
@@ -661,7 +662,7 @@ $(function () {
       minResizeH,
       "/stuff_machine/start_menu_windows/legal_window.html",
       $(this),
-      "Terms & Conditions"
+      "Terms & Conditions",
     );
     startMenuClose();
   });
@@ -673,7 +674,7 @@ $(function () {
       minResizeH,
       "/stuff_machine/start_menu_windows/bug_window.html",
       $(this),
-      "Report a Bug..."
+      "Report a Bug...",
     );
     startMenuClose();
   });
@@ -685,7 +686,7 @@ $(function () {
       minResizeW,
       minResizeH,
       "/stuff_machine/venera_window.html",
-      $(this)
+      $(this),
     );
   });
   function showVenera() {
@@ -701,7 +702,7 @@ $(function () {
       $(window).width() / 2,
       $(window).height() / 2,
       "",
-      $(this)
+      $(this),
     );
     $("#photo-window")
       .find("iframe")
@@ -714,7 +715,7 @@ $(function () {
       minResizeW,
       minResizeH,
       "/stuff_machine/folder_windows/audio_window.html",
-      $(this)
+      $(this),
     );
   });
   $("#app-visual").dblclick(function () {
@@ -724,7 +725,7 @@ $(function () {
       minResizeW,
       minResizeH,
       "/stuff_machine/folder_windows/visual_window.html",
-      $(this)
+      $(this),
     );
   });
   $("#app-titanpoint").dblclick(function () {
@@ -733,7 +734,7 @@ $(function () {
       .find("iframe")
       .attr(
         "src",
-        "https://evetshuu.com/stuff_machine/webgl/u_titanpoint/index.html"
+        "https://evetshuu.com/stuff_machine/webgl/u_titanpoint/index.html",
       );
   });
 
@@ -745,7 +746,7 @@ $(function () {
       minResizeH,
       "/stuff_machine/notes_window.html",
       $(this),
-      "notes"
+      "notes",
     );
   });
 
@@ -759,7 +760,7 @@ $(function () {
         "#audio-songs-content",
         "audio",
         "audio",
-        "songs"
+        "songs",
       );
       // TESTopener();
     });
@@ -771,7 +772,7 @@ $(function () {
         "#audio-games-content",
         "audio",
         "audio",
-        "from-games"
+        "from-games",
       );
     });
     $("#audio-other").dblclick(function () {
@@ -782,21 +783,10 @@ $(function () {
         "#audio-other-content",
         "audio",
         "audio",
-        "other"
+        "other",
       );
     });
     // level 2 - games
-    $("#games-hyper").dblclick(function () {
-      folderOpenL2(
-        this,
-        "#audio-parent",
-        "#audio-games-content",
-        "#games-hyper-content",
-        "audio",
-        "from-games",
-        "hyperstars"
-      );
-    });
     $("#games-ritual").dblclick(function () {
       folderOpenL2(
         this,
@@ -805,7 +795,7 @@ $(function () {
         "#games-ritual-content",
         "audio",
         "from-games",
-        "rn-unused"
+        "rn-unused",
       );
     });
     $("#games-anamnesis").dblclick(function () {
@@ -816,7 +806,7 @@ $(function () {
         "#games-anamnesis-content",
         "audio",
         "from-games",
-        "anamnesis"
+        "anamnesis",
       );
     });
     $("#games-space").dblclick(function () {
@@ -827,7 +817,7 @@ $(function () {
         "#games-space-content",
         "audio",
         "from-games",
-        "space-game"
+        "space-game",
       );
     });
     $("#games-sanctum").dblclick(function () {
@@ -838,7 +828,7 @@ $(function () {
         "#games-sanctum-content",
         "audio",
         "from-games",
-        "sanctum"
+        "sanctum",
       );
     });
   };
@@ -852,7 +842,7 @@ $(function () {
         "#visual-gifs-content",
         "visual",
         "visual",
-        "gifs"
+        "gifs",
       );
     });
     $("#visual-notgifs").dblclick(function () {
@@ -863,7 +853,7 @@ $(function () {
         "#visual-notgifs-content",
         "visual",
         "visual",
-        "not-gifs"
+        "not-gifs",
       );
     });
   };
@@ -877,7 +867,7 @@ $(function () {
       minResizeH,
       "/stuff_machine/start_menu_windows/about_window.html",
       $("#app-about"),
-      "About Stuff Machine"
+      "About Stuff Machine",
     );
   }, 500);
 });
