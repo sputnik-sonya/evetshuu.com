@@ -2,7 +2,11 @@
 
 Source code of my [portfolio](https://evetshuu.com/) website.
 
-Also an excuse to learn web dev. Built with pure HTML, CSS, and JS.
+Also an excuse to learn web. Built with pure HTML, CSS, and JS.
+
+> I showed your site to my wife when you originally sent it and she was shocked and impressed - we don’t often see student sites looking this good so I will use it as an example of what can be done.
+
+-Amos Bloomberg, NYU professor (Intro to Web Development)
 
 ## About Stuff Machine
 
