@@ -1,14 +1,16 @@
 # What's this?
 
-**Source code of [my portfolio](https://evetshuu.com/).**
+An excuse to learn and practice web over the summer. Built with pure HTML, CSS, and JS.
 
-An excuse to learn web development.
+> I showed your site to my wife when you originally sent it and she was shocked and impressed - we don’t often see student sites looking this good so I will use it as an example of what can be done.
+>
+> -Amos Bloomberg, NYU (Intro to Web Development)
 
 ## About Stuff Machine
 
-Stupid little web app made purely with `Bootstrap` and `jQuery` _only_. Nightmare nightmare nightmare nightmare. See terribly formatted source code in [`../js/stuff.js`](/js/stuff.js). All Stuff Machine related `.html` files are found in [`../stuff_machine`](/stuff_machine/)).
+OS-like frontend only webapp made purely with `Bootstrap`, `jQuery` and caffeine, nothing else. Nightmare nightmare nightmare. Source at [`../js/stuff.js`](/js/stuff.js). All Stuff Machine related `.html` files are found in [`../stuff_machine`](/stuff_machine/)).
 
-### Stuff Machine Content Table
+### Stuff Machine Content Table (2023)
 
 ```
 venera
