@@ -93,11 +93,11 @@
             const el = document.getElementById("front-name");
 
             const names = [
-              "evethuu",
+              "evetshuu",
               "evetsion",
-              "master_huhu",
-              "matchamenace",
-              "Steve Hu", // final target (last item)
+              "sputnik-sonya",
+              "oortonion",
+              "evets", // final target (last item)
             ];
 
             let interval = null;
@@ -166,7 +166,7 @@
                   ><span class="_svg-new-window"></span>
                   <br />
                   <span class="small-text" style="font-size: small">
-                    i also make
+                    also make
                     <a
                       href="https://assetstore.unity.com/packages/2d/textures-materials/sky/dynamic-stylized-skybox-322177"
                       target="_blank"
@@ -181,27 +181,8 @@
                           width="22"
                           src="images/stuff/stuffmachine_logo_icon_pic.png" /></span
                     ></a>
-                    &
-                    <a
-                      href="http://evefinapp.s3-website.us-east-2.amazonaws.com/"
-                      target="_blank"
-                      >finapp
-                      <span
-                        ><img
-                          style="margin: 0"
-                          width="22"
-                          src="images/stuff/i_r.png" /></span
-                    ></a>
-                    <br />i like writing
-                    <a href="/words.html"
-                      >words
-                      <span
-                        ><img
-                          style="margin: 0"
-                          width="22"
-                          src="images/icons/wordsmachine_logo_icon_pic.png" /></span
-                    ></a>
-                    occasionally<br />
+                    <br />
+                    <br />
                     shipped
                     <a
                       target="_blank"
@@ -212,15 +193,7 @@
                       target="_blank"
                       href="https://gamecenter.nyu.edu/congrats-to-ritual-night-for-launching-on-steam-early-access/"
                       >NYU </a
-                    ><span class="_svg-new-window"></span><br />helped with
-                    <a href="/games/thought-experiment-simulator.html"
-                      >Thought Experiment Simulator</a
-                    >
-                    |
-                    <a href="/games/ai2u.html">Ai2U</a>
-                    &
-                    <a href="/games/streamphobia.html">Streamphobia</a></span
-                  >
+                    ><span class="_svg-new-window"></span><br />scroll for more
                   <br />
                   <br />
                   <svg
@@ -306,10 +279,33 @@
             <br />
             <h2 class="game-category-title">Games</h2>
             <hr class="rounded" />
+            <script>
+              $(document).ready(function() {
+                $('#game-somno-toggle, #game-work-toggle, #game-nyu-toggle').click(function() {
+                  let $btn = $(this);
+                  $btn.toggleClass('active');
+ 
+                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
+                  $(targetClass).toggleClass('d-none');
+                });
+              });
+            </script>
+            <div id="game-category-buttons" class="d-flex gap-2 justify-content-start align-items-center">
+              <span style="font: 12px JetBrains Mono, monospace;">show:</span>
+              <button id="game-somno-toggle" class="active">
+                upcoming
+              </button>
+              <button id="game-work-toggle" class="active">
+                work
+              </button>
+              <button id="game-nyu-toggle" class="active">
+                nyu
+              </button>
+            </div>
             <div
               class="games-main row row-cols-1 row-cols-md-2 row-cols-xxl-3 g-3 g-lg-4"
             >
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-somno">
                 <a
                   title="in development"
                   data-bs-toggle="tooltip"
@@ -350,8 +346,8 @@
                       class="coming-soon-overlay d-none flex-column justify-content-center"
                       id="br-overlay"
                     >
-                      <p style="text-align: center">
-                        working on it!<br />check other games for portfolio
+                      <p style="text-align: center; color: white !important;">
+                        working on it!<br />check other games in portfolio
                       </p>
                       <div
                         class="d-flex justify-content-center coming-soon-overlay"
@@ -360,14 +356,14 @@
                           <button
                             onclick="
                               window.open(
-                                'https://store.steampowered.com/app/3766120/Brainrot_Game/',
+                                'https://brainrotgame.gg/',
                                 '_blank',
                               )
                             "
+                            style="font: 12px JetBrains Mono, monospace;"
                             class="page-buttons"
                           >
-                            or view the steam page early
-                            <span class="_svg-steam"></span>
+                            brainrtogame.gg <span class="_svg-new-window"></span>
                           </button>
                         </div>
                       </div>
@@ -379,7 +375,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-work">
                 <a href="../games/streamphobia.html">
                   <div>
                     <img
@@ -409,7 +405,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-work">
                 <a href="../games/ai2u.html">
                   <div>
                     <img
@@ -439,7 +435,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a
                   href="../games/ritual-night.html"
                   title="sus"
@@ -472,7 +468,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-work">
                 <a href="../games/thought-experiment-simulator.html">
                   <div>
                     <img
@@ -502,7 +498,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a
                   href="../games/hyperstars.html"
                   title="will ship one day (promise)"
@@ -538,7 +534,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a href="../games/untitled-crt-game.html">
                   <div>
                     <img
@@ -564,7 +560,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a href="../games/foghorn.html">
                   <div>
                     <img
@@ -591,7 +587,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a href="../games/pyramids.html">
                   <div>
                     <img
@@ -621,7 +617,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab">
+              <div class="p-2 game-tab game-nyu">
                 <a href="../games/anamnesis.html">
                   <div>
                     <img

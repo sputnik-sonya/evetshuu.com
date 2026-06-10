@@ -23,6 +23,35 @@
   text-overflow: ellipsis;
 }
 
+#game-category-buttons button {
+  border: 1px solid transparent;
+  padding: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+  text-decoration: none;
+  font:
+    12px JetBrains Mono,
+    monospace;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  color: var(--color-w);
+}
+
+#game-category-buttons button:hover {
+  background-color: var(--color-y);
+  color: var(--color-b);
+  border: 1px solid var(--color-y);
+}
+
+#game-category-buttons .active {
+  background-color: var(--color-b);
+  color: var(--color-y);
+  text-decoration: underline;
+  font-weight: 700;
+  border: 1px solid var(--color-y);
+}
+
 .loaded-content {
   display: none;
 }
