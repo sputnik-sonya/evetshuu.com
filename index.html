@@ -281,16 +281,28 @@
             <hr class="rounded" />
             <script>
               $(document).ready(function() {
+                $('#game-somno-toggle, #game-work-toggle, #game-nyu-toggle').hover(function() {
+                  let $btn = $(this);
+                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
+                  $(targetClass).addClass('cat-hover');
+                }, function() {
+                  let $btn = $(this);
+                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
+                  $(targetClass).removeClass('cat-hover');
+                });
                 $('#game-somno-toggle, #game-work-toggle, #game-nyu-toggle').click(function() {
                   let $btn = $(this);
                   $btn.toggleClass('active');
  
                   let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
-                  $(targetClass).toggleClass('d-none');
+                  $(targetClass).toggleClass('dehighlight');
+                  let disabled = $(targetClass).hasClass('dehighlight');
+                  $(targetClass).find('a').css('pointer-events', disabled ? 'none' : 'auto');
                 });
               });
             </script>
-            <div id="game-category-buttons" class="d-flex gap-2 justify-content-start align-items-center">
+            <div id="game-category-buttons" class="d-none d-md-flex gap-2 justify-content-center align-items-center mb-2"
+            style="position: sticky; top: 40px; width: fit-content; z-index: 9999;">
               <span style="font: 12px JetBrains Mono, monospace;">show:</span>
               <button id="game-somno-toggle" class="active">
                 upcoming

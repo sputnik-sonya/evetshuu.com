@@ -15,6 +15,15 @@
 .game-tab a:not(.unfinished) h2 {
   cursor: pointer;
 }
+.cat-hover a div {
+  border-color: var(--color-r) !important;
+}
+.cat-hover a h2 {
+  color: var(--color-y) !important;
+}
+.dehighlight {
+  opacity: 0.2;
+}
 .game-tab a h2 {
   padding-left: 4px;
   margin-left: 4px;
@@ -50,6 +59,10 @@
   text-decoration: underline;
   font-weight: 700;
   border: 1px solid var(--color-y);
+}
+
+.tooltip {
+  z-index: 99999 !important;
 }
 
 .loaded-content {
