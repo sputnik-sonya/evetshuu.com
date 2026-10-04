@@ -1,1 +1,1 @@
-$("#theme-stylesheet").attr("href", `/css/themes/${localStorage.getItem("theme")}.css`);
+$("#theme-stylesheet").attr("href", `/css/themes/${localStorage.getItem("theme") || "default"}.css`);

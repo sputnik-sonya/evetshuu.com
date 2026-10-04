@@ -17,6 +17,8 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="/css/lite-yt-embed.css" />
+    <script defer src="/js/lite-yt-embed.js"></script>
     <link rel="stylesheet" href="/css/main.css" />
     <link
       rel="stylesheet"
@@ -43,25 +45,8 @@
       </div>
       <div id="game-right" class="flex-fill">
         <div id="game-content">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/IhvXfoxZ9Gs?si=bKAdEeMDE3MbxTEA"
-            title="YouTube video player"
-            frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
+          <lite-youtube videoid="IhvXfoxZ9Gs"></lite-youtube>
+          <iframe loading="lazy"
             src="https://store.steampowered.com/widget/2696320/"
             frameborder="0"
             width="646"
@@ -88,7 +73,7 @@
             amazing series by a Chinese animation studio as reference. I made
             all the sound effects in the game with <r>just my voice</r>.
           </p>
-          <img style="width: 100%" src="/images/games/tes/sounds.png" />
+          <img loading="lazy" style="width: 100%" src="/images/games/tes/sounds.png" />
           <cap>Sound effects in progress</cap>
           <p>
             In total, there were <r>more than 300</r> individual clips of sound
@@ -162,24 +147,7 @@
             Did you know RCE is one of my favorite youtubers ever? Very cool
             that he's played the game.
           </p>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/rfLKEsVtVFM?si=BknS6QDHPpJDv2hB"
-            title="YouTube video player"
-            frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <lite-youtube videoid="rfLKEsVtVFM"></lite-youtube>
         </div>
       </div>
     </main>

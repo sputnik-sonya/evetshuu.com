@@ -1,9 +1,13 @@
+var meterInterval;
+var clockInterval;
+var checkingAnim;
+
 function generalListAnim() {
-  setInterval(() => {
+  clockInterval = setInterval(() => {
     var now = new Date(Date.now());
     var formatted = now.toISOString();
     $("#current-time").html(formatted);
-  }, 1);
+  }, 16);
   setTimeout(function () {
     $("#general-list").css("display", "block");
   }, 300);
@@ -51,7 +55,7 @@ function checklistAnim() {
     }, 1400);
 
     var initialStar = 42 * 4;
-    setInterval(() => {
+    meterInterval = setInterval(() => {
       $("#meter").html((initialStar *= 13));
     }, 50);
 
@@ -90,19 +94,23 @@ function booting() {
 
   generalListAnim();
 
-  var checkingAnim = setInterval(() => {
+  checkingAnim = setInterval(() => {
     $("#checking").animate({ letterSpacing: "+=15px" }, 300);
     $("#checking").animate({ letterSpacing: "-=15px" }, 300);
   }, 600);
 
   checklistAnim();
-  ChangeStuffMachineCursor(localStorage.getItem("theme"));
+  ChangeStuffMachineCursor(localStorage.getItem("theme") || "default");
 }
 
 function showStuff() {
   $("#stuff-machine-loader").animate({ top: "40px" }, 750);
   setTimeout(function () {
     $("#stuff-machine-loader").css("display", "none");
+    // loader is gone, stop its animations
+    clearInterval(meterInterval);
+    clearInterval(clockInterval);
+    clearInterval(checkingAnim);
     $("#sm-load").empty();
     $("#sm-desktop").fadeIn(1000);
   }, 1100);

@@ -1,13 +1,5 @@
-<iframe
-  width="100%"
-  src="https://www.youtube.com/embed/kU7d1mGMXtc?si=QArA1sIrVYkfaKTA"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
-<iframe
+<lite-youtube videoid="kU7d1mGMXtc"></lite-youtube>
+<iframe loading="lazy"
   src="https://store.steampowered.com/widget/1834980/"
   frameborder="0"
   width="646"
@@ -17,6 +9,7 @@
 
 <div class="d-flex flex-wrap flex-xl-nowrap justify-content-center">
   <img
+    loading="lazy"
     class="invert-colors d-xl-block"
     src="/images/games/ritual_night/GDoC_White.png"
     style="height: 8rem; width: auto !important"
@@ -28,12 +21,14 @@
     style="height: 8rem; width: auto !important"
   >
     <img
+      loading="lazy"
       class="invert-colors"
       src="/images/games/ritual_night/devbooster.png"
       style="height: 100%"
   /></a>
   <a href="https://discord.gg/pdGkdJEkHR" target="_blank" id="rn-discord-link">
     <img
+      loading="lazy"
       src="/images/games/ritual_night/discord.png"
       style="height: 8rem; width: auto !important"
   /></a>
@@ -42,14 +37,14 @@
 <!-- <hr />
 <h4>Development tools</h4>
 <div class="tools d-flex flex-wrap gap-4">
-  <img style="width: 60px" src="/images/games/tools/u.png" />
-  <img style="width: 60px" src="/images/games/tools/rd.png" />
-  <img style="width: 60px" src="/images/games/tools/ps.png" />
-  <img style="width: 60px" src="/images/games/tools/pr.png" />
-  <img style="width: 60px" src="/images/games/tools/a.png" />
-  <img style="width: 60px" src="/images/games/tools/f.png" />
-  <img style="width: 60px" src="/images/games/tools/r.png" />
-  <img style="width: 60px" src="/images/games/tools/fd.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/u.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/rd.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/ps.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/pr.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/a.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/f.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/r.png" />
+  <img loading="lazy" style="width: 60px" src="/images/games/tools/fd.png" />
 </div> -->
 
 <hr />
@@ -65,14 +60,17 @@
 </p>
 <div class="row">
   <img
+    loading="lazy"
     class="col-6 col-md-4"
     src="/images/games/ritual_night/team/tech_day.jpg"
   />
   <img
+    loading="lazy"
     class="col-6 col-md-4 d-none d-md-block"
     src="/images/games/ritual_night/team/win.jpg"
   />
   <img
+    loading="lazy"
     class="col-6 col-md-4"
     src="/images/games/ritual_night/team/wonderville.jpg"
   />
@@ -84,7 +82,8 @@
   under its name.
 </p>
 <video
-  autoplay
+  data-autoplay
+  preload="none"
   muted
   loop
   src="/images/games/ritual_night/team/twerk.mp4"

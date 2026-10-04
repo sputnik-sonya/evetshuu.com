@@ -29,6 +29,8 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="css/lite-yt-embed.css" />
+    <script defer src="js/lite-yt-embed.js"></script>
     <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
@@ -40,7 +42,6 @@
 
     <script type="text/javascript" src="js/jquery-3.6.3.min.js"></script>
     <script type="text/javascript" src="js/theme_select.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </head>
 
@@ -145,42 +146,46 @@
             ></span>
           </p>
 
-          <!-- About -->
-          <div id="index-about" style="display: block" class="d-flex">
-            <div id="about-content" class="d-flex flex-wrap">
-              <div>
-                <img
-                  src="/images/cat_logo.png"
-                  style="margin-right: 40px; height: 150px"
-                />
-              </div>
-              <div id="about-text">
-                <p>
-                  <r>game designer</r> (technical & narrative), <r>indie dev</r
-                  ><br /><br />
-                  making
-                  <a
-                    target="_blank"
-                    href="https://store.steampowered.com/app/3766120/Brainrot_Game/"
-                    >Brainrot Game </a
-                  ><span class="_svg-new-window"></span>
-                  <br />
-                  <span class="small-text" style="font-size: small">
-                    also make
+          <!-- About + Reels -->
+          <div id="index-intro" class="d-xl-flex justify-content-between gap-4">
+            <div id="index-about" style="display: block" class="d-flex">
+              <div id="about-content" class="d-flex flex-wrap">
+                <div>
+                  <img
+                    src="/images/cat_logo.png"
+                    style="margin-right: 40px; height: 150px"
+                  />
+                </div>
+                <div id="about-text">
+                  <p>
+                    <r>game designer</r> (technical & narrative),
+                    <r>indie dev</r><br /><br />
+                    making
                     <a
-                      href="https://assetstore.unity.com/packages/2d/textures-materials/sky/dynamic-stylized-skybox-322177"
                       target="_blank"
-                      >Unity tools </a
+                      href="https://store.steampowered.com/app/3766120/Brainrot_Game/"
+                      >Brainrot Game </a
                     ><span class="_svg-new-window"></span>
-                    and websites like
-                    <a href="/stuff.html"
-                      >stuff
-                      <span
-                        ><img
-                          style="margin: 0"
-                          width="22"
-                          src="images/stuff/stuffmachine_logo_icon_pic.png" /></span
-                    ></a>
+                    <br />
+                    <span class="small-text" style="font-size: small">
+                      also make
+                      <a
+                        href="https://assetstore.unity.com/packages/2d/textures-materials/sky/dynamic-stylized-skybox-322177"
+                        target="_blank"
+                        >Unity tools </a
+                      ><span class="_svg-new-window"></span>
+                      and websites like
+                      <a href="/stuff.html"
+                        >stuff
+                        <span>
+                          <img
+                            style="margin: 0"
+                            width="22"
+                            src="images/stuff/stuffmachine_logo_icon_pic.png"
+                          />
+                        </span>
+                      </a>
+                    </span>
                     <br />
                     <br />
                     shipped
@@ -193,30 +198,55 @@
                       target="_blank"
                       href="https://gamecenter.nyu.edu/congrats-to-ritual-night-for-launching-on-steam-early-access/"
                       >NYU </a
-                    ><span class="_svg-new-window"></span><br />scroll for more
-                  <br />
-                  <br />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-geo-alt-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
-                    />
-                  </svg>
-                  gmt<br />
-                  &#60;<a href="mailto:evets.dev@gmail.com" target="_blank"
-                    >email</a
-                  >&#62; &#60;<a
-                    target="_blank"
-                    href="https://www.evetshuu.com/documents/resume-2026.pdf"
-                    >resume</a
-                  >&#62;
-                </p>
+                    ><span class="_svg-new-window"></span>
+                    <br />
+                    <br />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-geo-alt-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                      />
+                    </svg>
+                    gmt<br />
+                    &#60;<a href="mailto:evets.dev@gmail.com" target="_blank"
+                      >email</a
+                    >&#62; &#60;<a
+                      target="_blank"
+                      href="https://www.evetshuu.com/documents/resume-2026.pdf"
+                      >resume</a
+                    >&#62;
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="index-reels">
+              <div class="games-main row row-cols-1 row-cols-md-2 g-3 g-lg-4">
+                <div class="p-2 game-tab">
+                  <div>
+                    <p class="game-category-title" style="margin-bottom: 10px">
+                      Technical Design Reel
+                    </p>
+                    <div class="video-container">
+                      <lite-youtube videoid="pyYY7V6GwLs"></lite-youtube>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-2 game-tab">
+                  <div>
+                    <p class="game-category-title" style="margin-bottom: 10px">
+                      Tooling Reel
+                    </p>
+                    <div class="video-container">
+                      <lite-youtube videoid="uj6wfV2K78E"></lite-youtube>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -224,95 +254,88 @@
           <!-- Game -->
           <div id="index-game">
             <br />
-            <h2 class="game-category-title">Reels</h2>
-            <hr class="rounded" />
-            <div class="games-main row row-cols-1 row-cols-md-2 g-3 g-lg-4">
-              <div class="p-2 game-tab">
-                <div>
-                  <div class="video-container">
-                    <iframe
-                      src="https://www.youtube.com/embed/pyYY7V6GwLs?si=tOLL9a3bq-jjey5-"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="
-                        accelerometer;
-                        autoplay;
-                        clipboard-write;
-                        encrypted-media;
-                        gyroscope;
-                        picture-in-picture;
-                        web-share;
-                      "
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
+            <!-- <div>
+              <h2 class="game-category-title">Reels</h2>
+              <hr class="rounded" />
+              <div class="games-main row row-cols-1 row-cols-md-2 g-3 g-lg-4">
+                <div class="p-2 game-tab">
+                  <div>
+                    <div class="video-container">
+                      <lite-youtube videoid="pyYY7V6GwLs"></lite-youtube>
+                    </div>
+                    <p class="game-category-title">Technical Design</p>
                   </div>
-                  <p class="game-category-title">Technical Design</p>
+                </div>
+                <div class="p-2 game-tab">
+                  <div>
+                    <div class="video-container">
+                      <lite-youtube videoid="uj6wfV2K78E"></lite-youtube>
+                    </div>
+                    <p class="game-category-title">Tooling</p>
+                  </div>
                 </div>
               </div>
-              <div class="p-2 game-tab">
-                <div>
-                  <div class="video-container">
-                    <iframe
-                      src="https://www.youtube.com/embed/uj6wfV2K78E?si=s4DpNWuZo176OIKT"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="
-                        accelerometer;
-                        autoplay;
-                        clipboard-write;
-                        encrypted-media;
-                        gyroscope;
-                        picture-in-picture;
-                        web-share;
-                      "
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                  <p class="game-category-title">Tooling</p>
-                </div>
-              </div>
-            </div>
+            </div> -->
 
             <!-- Working -->
             <br />
             <h2 class="game-category-title">Games</h2>
             <hr class="rounded" />
             <script>
-              $(document).ready(function() {
-                $('#game-somno-toggle, #game-work-toggle, #game-nyu-toggle').hover(function() {
+              $(document).ready(function () {
+                $(
+                  "#game-somno-toggle, #game-work-toggle, #game-school-toggle",
+                ).hover(
+                  function () {
+                    let $btn = $(this);
+                    let targetClass =
+                      "." + $btn.attr("id").replace("-toggle", "");
+                    $(targetClass).addClass("cat-hover");
+                  },
+                  function () {
+                    let $btn = $(this);
+                    let targetClass =
+                      "." + $btn.attr("id").replace("-toggle", "");
+                    $(targetClass).removeClass("cat-hover");
+                  },
+                );
+                $(
+                  "#game-somno-toggle, #game-work-toggle, #game-school-toggle",
+                ).click(function () {
                   let $btn = $(this);
-                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
-                  $(targetClass).addClass('cat-hover');
-                }, function() {
-                  let $btn = $(this);
-                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
-                  $(targetClass).removeClass('cat-hover');
-                });
-                $('#game-somno-toggle, #game-work-toggle, #game-nyu-toggle').click(function() {
-                  let $btn = $(this);
-                  $btn.toggleClass('active');
- 
-                  let targetClass = '.' + $btn.attr('id').replace('-toggle', '');
-                  $(targetClass).toggleClass('dehighlight');
-                  let disabled = $(targetClass).hasClass('dehighlight');
-                  $(targetClass).find('a').css('pointer-events', disabled ? 'none' : 'auto');
+                  $btn.toggleClass("active");
+
+                  let targetClass =
+                    "." + $btn.attr("id").replace("-toggle", "");
+                  $(targetClass).toggleClass("dehighlight");
+                  let disabled = $(targetClass).hasClass("dehighlight");
+                  $(targetClass)
+                    .find("a")
+                    .css("pointer-events", disabled ? "none" : "auto");
                 });
               });
             </script>
-            <div id="game-category-buttons" class="d-none d-md-flex gap-2 justify-content-center align-items-center mb-2"
-            style="position: sticky; top: 40px; width: fit-content; z-index: 9999;">
-              <span style="font: 12px JetBrains Mono, monospace;">show:</span>
-              <button id="game-somno-toggle" class="active">
-                upcoming
-              </button>
-              <button id="game-work-toggle" class="active">
-                work
-              </button>
-              <button id="game-nyu-toggle" class="active">
-                nyu
-              </button>
+            <div
+              id="game-category-buttons"
+              class="d-none d-md-flex gap-2 justify-content-center align-items-center mb-2"
+              style="
+                position: sticky;
+                top: 40px;
+                width: fit-content;
+                z-index: 9999;
+              "
+            >
+              <span
+                style="
+                  font:
+                    12px JetBrains Mono,
+                    monospace;
+                "
+                >show:</span
+              >
+              <button id="game-somno-toggle" class="active">upcoming</button>
+              <button id="game-work-toggle" class="active">work</button>
+              <button id="game-school-toggle" class="active">school</button>
             </div>
             <div
               class="games-main row row-cols-1 row-cols-md-2 row-cols-xxl-3 g-3 g-lg-4"
@@ -334,13 +357,13 @@
                 >
                   <div>
                     <img
-                      alt="hyperstars_splash"
+                      alt="brainrot_splash"
                       src="../images/games/brainrot_splash.webp"
                       style="cursor: pointer"
                     />
                     <img
                       height="100%"
-                      src="../images/games/brainrot/br_splash_gif.gif"
+                      data-src="../images/games/brainrot/br_splash_gif.gif"
                       class="behind-splash"
                       style="cursor: pointer"
                     />
@@ -358,7 +381,7 @@
                       class="coming-soon-overlay d-none flex-column justify-content-center"
                       id="br-overlay"
                     >
-                      <p style="text-align: center; color: white !important;">
+                      <p style="text-align: center; color: white !important">
                         working on it!<br />check other games in portfolio
                       </p>
                       <div
@@ -367,15 +390,17 @@
                         <div class="coming-soon-overlay">
                           <button
                             onclick="
-                              window.open(
-                                'https://brainrotgame.gg/',
-                                '_blank',
-                              )
+                              window.open('https://brainrotgame.gg/', '_blank')
                             "
-                            style="font: 12px JetBrains Mono, monospace;"
+                            style="
+                              font:
+                                12px JetBrains Mono,
+                                monospace;
+                            "
                             class="page-buttons"
                           >
-                            brainrtogame.gg <span class="_svg-new-window"></span>
+                            brainrotgame.gg
+                            <span class="_svg-new-window"></span>
                           </button>
                         </div>
                       </div>
@@ -395,12 +420,11 @@
                       src="../images/games/streamphobia_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -425,12 +449,11 @@
                       src="../images/games/ai2u_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -447,7 +470,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a
                   href="../games/ritual-night.html"
                   title="sus"
@@ -461,12 +484,11 @@
                       src="../images/games/ritual_night_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -488,12 +510,11 @@
                       src="../images/games/tes_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -510,7 +531,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a
                   href="../games/hyperstars.html"
                   title="will ship one day (promise)"
@@ -524,12 +545,11 @@
                       src="../images/games/hyper_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -546,7 +566,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a href="../games/untitled-crt-game.html">
                   <div>
                     <img
@@ -554,12 +574,11 @@
                       src="../images/games/backrooms_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none"
                       class="behind-splash"
                     >
@@ -572,7 +591,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a href="../games/foghorn.html">
                   <div>
                     <img
@@ -580,12 +599,11 @@
                       src="../images/games/foghorn_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -599,7 +617,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a href="../games/pyramids.html">
                   <div>
                     <img
@@ -607,12 +625,11 @@
                       src="../images/games/pyramid_splash.webp"
                     />
                     <video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -629,19 +646,18 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2 game-tab game-nyu">
+              <div class="p-2 game-tab game-school">
                 <a href="../games/anamnesis.html">
                   <div>
                     <img
                       alt="anamnesis_splash"
                       src="../images/games/anamnesis_splash.webp"
                     /><video
-                      autoplay
                       muted
                       loop
                       playsinline
                       webkit-playsinline
-                      preload="auto"
+                      preload="none"
                       style="width: 100%; pointer-events: none; top: 1px"
                       class="behind-splash"
                     >
@@ -674,7 +690,7 @@
                       setInterval(() => {
                         $("#blink").fadeIn(500);
                         $("#blink").fadeOut(500);
-                      }, 500);
+                      }, 1000);
                     </script>
                     <h1 style="color: var(--color-w)">
                       > <inline id="blink">|</inline>
@@ -780,7 +796,7 @@
         setInterval(() => {
           $("#flash").fadeIn(200);
           $("#flash").fadeOut(200);
-        }, 200);
+        }, 400);
       </script>
       <!-- AD OLD -->
       <h4
@@ -799,22 +815,7 @@
       </h4>
       <div class="d-flex flex-column">
         <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/nqr3u-sV6hg?si=KoKhCb8PVEDf5yJQ"
-            title="YouTube video player"
-            frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <lite-youtube videoid="nqr3u-sV6hg"></lite-youtube>
         </div>
         <a
           id="ad-link"
@@ -836,6 +837,7 @@
           (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
         );
         LoadGameTabs();
+        LoadHoverPreviews();
       });
       switch (
         localStorage.getItem("theme")

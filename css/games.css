@@ -312,6 +312,10 @@
 #game-content audio {
   margin-bottom: var(--game-content-spacing);
 }
+#game-content lite-youtube {
+  /* matches the 10px padding the iframes had */
+  margin: 10px 10px calc(var(--game-content-spacing) + 10px);
+}
 #game-content iframe {
   margin-bottom: var(--game-content-spacing);
   aspect-ratio: 16/9;

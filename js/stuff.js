@@ -18,60 +18,87 @@ $(function () {
 
   let onStartMenu = false;
 
+  // is the browser (not a window) fullscreen
+  function isDocFullscreen() {
+    return !!(
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement
+    );
+  }
+
+  // window drag / resize
+  function windowResizeLimits() {
+    return {
+      maxHeight: $(window).height() - 68, // vh - (task bar + 29)
+      maxWidth: $(window).width() - 100,
+      minHeight: $(window).height() / 3,
+      minWidth: $(window).width() / 4,
+    };
+  }
+  // only set up windows that don't have drag / resize yet (media viewers get added later)
+  function initWindowControls() {
+    $(".window").not(".ui-draggable").draggable({
+      disabled: fullscreened,
+      containment: "#window-boundries",
+      scroll: false,
+      stack: ".window",
+      handle: ".window-controls",
+    });
+
+    $(".window-content")
+      .not(".ui-resizable")
+      .resizable({ disabled: fullscreened, ...windowResizeLimits() });
+  }
+  function setWindowControlsEnabled(enabled) {
+    $(".window.ui-draggable").draggable(enabled ? "enable" : "disable");
+    $(".window-content.ui-resizable").resizable(enabled ? "enable" : "disable");
+  }
+
+  // check start menu hover
+  $("#start-menu")
+    .on("mouseenter", function () {
+      onStartMenu = true;
+    })
+    .on("mouseleave", function () {
+      onStartMenu = false;
+    });
+
+  // color fullscreen button when document fullscreen changes
+  function colorFullscreenButton() {
+    $("#desktop-fullscreen-button path").css(
+      "fill",
+      isDocFullscreen() ? "var(--color-y-sm)" : "var(--color-w-sm)",
+    );
+  }
+  colorFullscreenButton();
+  $(document).on(
+    "fullscreenchange webkitfullscreenchange mozfullscreenchange",
+    colorFullscreenButton,
+  );
+
+  let veneraWide = null;
+
   // !!!!!!![[[[[[[[[UPDATE]]]]]]]]!!!!!!!
   let update = setInterval(() => {
-    // full screen check
-    if (!fullscreened) {
-      $(".window").draggable({
-        disabled: false,
-        containment: "#window-boundries",
-        scroll: false,
-        stack: ".window",
-        handle: ".window-controls",
-      });
+    initWindowControls();
 
-      $(".window-content").resizable({
-        disabled: false,
-        maxHeight: $(window).height() - 68, // vh - (task bar + 29)
-        maxWidth: $(window).width() - 100,
-        minHeight: $(window).height() / 3,
-        minWidth: $(window).width() / 4,
-      });
-    } else {
-      $(".window").draggable("disable");
-      $(".window-content").resizable("disable");
-    }
-
-    // check start menu hover
-    if ($("#start-menu:hover").length != 0) {
-      onStartMenu = true;
-    } else {
-      onStartMenu = false;
-    }
-
-    // check if document fullscreen, color fullscreen button
-    if (
-      (document.fullScreenElement && document.fullScreenElement !== null) ||
-      (!document.mozFullScreen && !document.webkitIsFullScreen)
-    ) {
-      $("#desktop-fullscreen-button path").css("fill", "var(--color-w-sm)");
-    } else {
-      $("#desktop-fullscreen-button path").css("fill", "var(--color-y-sm)");
-    }
-
-    // venera pdf show
-    if (
+    // venera pdf show (only when the window crosses the size threshold)
+    const wide =
       $("#venera-window").length != 0 &&
-      $("#venera-window").width() > $(window).width() * 0.9
-    ) {
-      $("#venerapdf").fadeIn();
-      $("#venera-words").fadeOut(300);
-      showVenera();
-    } else {
-      $("#venerapdf").fadeOut();
-      $("#venera-words").fadeIn(300);
+      $("#venera-window").width() > $(window).width() * 0.9;
+    if (wide !== veneraWide) {
+      veneraWide = wide;
+      if (wide) {
+        $("#venerapdf").fadeIn();
+        $("#venera-words").fadeOut(300);
+        showVenera();
+      } else {
+        $("#venerapdf").fadeOut();
+        $("#venera-words").fadeIn(300);
+      }
     }
-  }, 10);
+  }, 100);
 
   $("body").mousedown(function (event) {
     // WINDOW SELECTION
@@ -180,6 +207,7 @@ $(function () {
         .not($(thing).closest(".window").find(".window-toggle-button"))
         .attr("disabled", true);
       fullscreened = true;
+      setWindowControlsEnabled(false);
     } else {
       $(thing).closest(".window").removeClass("active-fullscreen");
       $(thing).closest(".window").css({
@@ -224,6 +252,7 @@ $(function () {
         .not($(thing).closest(".window").find(".window-toggle-button"))
         .attr("disabled", false);
       fullscreened = false;
+      setWindowControlsEnabled(true);
     }
   }
   // ==========================================FULLSCREENING=========================
@@ -236,7 +265,7 @@ $(function () {
     startMenuOpened = true;
   }
   function startMenuClose() {
-    ($("#start-menu").animate({ top: "100vh" }, 350), "easeOutQuad");
+    $("#start-menu").animate({ top: "100vh" }, 350, "easeOutQuad");
     startMenuOpened = false;
   }
 
@@ -249,6 +278,7 @@ $(function () {
     }
   });
   $(window).resize(function () {
+    $(".window-content.ui-resizable").resizable("option", windowResizeLimits());
     // startMenuClose();
     if (fullscreened) {
       toggleFullscreen($(".active-fullscreen").find(".window-toggle-button"));
@@ -302,10 +332,10 @@ $(function () {
   var taskBarTime = setInterval(() => {
     $("#tb-time").html(
       ("0" + new Date(Date.now()).getHours()).slice(-2) +
-        ":" +
-        ("0" + new Date(Date.now()).getMinutes()).slice(-2) +
-        ":" +
-        ("0" + new Date(Date.now()).getSeconds()).slice(-2),
+      ":" +
+      ("0" + new Date(Date.now()).getMinutes()).slice(-2) +
+      ":" +
+      ("0" + new Date(Date.now()).getSeconds()).slice(-2),
     );
     if (
       new Date(Date.now()).getHours() < 5 ||
@@ -343,12 +373,9 @@ $(function () {
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
   );
   $("#desktop-fullscreen-button").click(function () {
-    if (
-      (document.fullScreenElement && document.fullScreenElement !== null) ||
-      (!document.mozFullScreen && !document.webkitIsFullScreen)
-    ) {
-      if (document.documentElement.requestFullScreen) {
-        document.documentElement.requestFullScreen();
+    if (!isDocFullscreen()) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
       } else if (document.documentElement.mozRequestFullScreen) {
         document.documentElement.mozRequestFullScreen();
       } else if (document.documentElement.webkitRequestFullScreen) {
@@ -357,8 +384,8 @@ $(function () {
         );
       }
     } else {
-      if (document.cancelFullScreen) {
-        document.cancelFullScreen();
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
       } else if (document.mozCancelFullScreen) {
         document.mozCancelFullScreen();
       } else if (document.webkitCancelFullScreen) {
@@ -472,10 +499,10 @@ $(function () {
             .find(".window-content-folder")
             .append(
               "<script>" +
-                selectWindow +
-                mediaOpen +
-                randomWindowLocation +
-                "</script>",
+              selectWindow +
+              mediaOpen +
+              randomWindowLocation +
+              "</script>",
             );
         });
     }
@@ -493,11 +520,11 @@ $(function () {
     } else {
       $("#media-viewer-holder").append(
         "<div class='window media-viewer' id='" +
-          newID +
-          "'>" +
-          "<div class='window-controls no-fs d-flex justify-content-end'> <p class='window-header-text'>" +
-          "</p> <button class='window-close-button d-flex align-items-center justify-content-center' > <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' viewBox='0 0 16 16' > <path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z' /> </svg> </button> </div>" +
-          "<div class='window-content-fixed'> <div class='viewer-loader'><div class='loader'><div class='loader-sub'></div></div></div> <div class='viewer-content'></div> </div></div>",
+        newID +
+        "'>" +
+        "<div class='window-controls no-fs d-flex justify-content-end'> <p class='window-header-text'>" +
+        "</p> <button class='window-close-button d-flex align-items-center justify-content-center' > <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--color-w-sm)' viewBox='0 0 16 16' > <path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z' /> </svg> </button> </div>" +
+        "<div class='window-content-fixed'> <div class='viewer-loader'><div class='loader'><div class='loader-sub'></div></div></div> <div class='viewer-content'></div> </div></div>",
       );
 
       $(newIDSelector)
@@ -574,10 +601,10 @@ $(function () {
         .find(".folder-path")
         .html(
           "<inline class='folder-back-button'>" +
-            backSvg +
-            lastLvlName +
-            "</inline>/" +
-            nextLvlName,
+          backSvg +
+          lastLvlName +
+          "</inline>/" +
+          nextLvlName,
         );
     } else {
       $(nextLvlId)
@@ -585,23 +612,29 @@ $(function () {
         .find(".folder-path")
         .html(
           "<inline class='folder-back-button'>" +
-            backSvg +
-            parentName +
-            "</inline>/" +
-            "<inline class='folder-back-button-lvl2'>" +
-            lastLvlName +
-            "</inline>/" +
-            nextLvlName,
+          backSvg +
+          parentName +
+          "</inline>/" +
+          "<inline class='folder-back-button-lvl2'>" +
+          lastLvlName +
+          "</inline>/" +
+          nextLvlName,
         );
 
-      $(".folder-back-button-lvl2").click(function () {
-        folderBack(false, parentId, nextLvlId, lastLvlId, nextLvlName);
-      });
+      $(nextLvlId)
+        .closest(".window")
+        .find(".folder-back-button-lvl2")
+        .click(function () {
+          folderBack(false, parentId, nextLvlId, lastLvlId, nextLvlName);
+        });
     }
 
-    $(".folder-back-button").click(function () {
-      folderBack(true, parentId, nextLvlId, parentId);
-    });
+    $(nextLvlId)
+      .closest(".window")
+      .find(".folder-back-button")
+      .click(function () {
+        folderBack(true, parentId, nextLvlId, parentId);
+      });
   }
   function folderBack(
     isBackToParent,
@@ -624,9 +657,12 @@ $(function () {
         .find(".folder-path")
         .html(current.replace("/" + currentName, ""));
       // reset first back button
-      $(".folder-back-button").click(function () {
-        folderBack(true, parentId, backToId, parentId);
-      });
+      $(currentId)
+        .closest(".window")
+        .find(".folder-back-button")
+        .click(function () {
+          folderBack(true, parentId, backToId, parentId);
+        });
       $(backToId).show();
     }
   }

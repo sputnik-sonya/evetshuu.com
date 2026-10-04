@@ -599,10 +599,14 @@ html.is-animating .transition-fade {
   height: 0;
   margin-bottom: 10px;
 }
-.video-container iframe {
+.video-container iframe,
+.video-container lite-youtube {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+lite-youtube {
+  max-width: none;
 }

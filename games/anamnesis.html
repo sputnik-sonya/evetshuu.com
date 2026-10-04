@@ -17,6 +17,8 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="/css/lite-yt-embed.css" />
+    <script defer src="/js/lite-yt-embed.js"></script>
     <link rel="stylesheet" href="/css/main.css" />
     <link
       rel="stylesheet"
@@ -45,40 +47,27 @@
       <div id="game-right">
         <div id="game-content" class="row">
           <div class="col-12 col-xxl-12">
-            <iframe
-              width="100%"
-              src="https://www.youtube.com/embed/fu48WXYjmFU?si=etwbr56iOjAIY6pL"
-              title="YouTube video player"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <lite-youtube videoid="fu48WXYjmFU"></lite-youtube>
           </div>
           <div class="col-12 col-xxl-12">
             <div class="row">
               <div class="col-6">
                 <img
+                  loading="lazy"
                   src="/images/games/anamnesis/ana_screenshot1.png"
                   style="width: 100%"
                 />
               </div>
               <div class="col-6">
                 <img
+                  loading="lazy"
                   src="/images/games/anamnesis/ana_screenshot2.png"
                   style="width: 100%"
                 />
               </div>
             </div>
             <img
+              loading="lazy"
               src="/images/games/anamnesis/ana_screenshot3.png"
               style="width: 100%"
             />

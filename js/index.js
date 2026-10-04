@@ -37,7 +37,60 @@ function showPage() {
   $(".loaded-content").css("display", "block");
 }
 
+// videos
+function PlayVideo(video) {
+  const playing = video.play();
+  if (playing) playing.catch(() => { }); // ignore autoplay blocks / interrupted loads
+}
+
+// muted looping videos with data-autoplay only load and play while on screen
+const lazyVideoObserver =
+  "IntersectionObserver" in window
+    ? new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            PlayVideo(entry.target);
+          } else {
+            entry.target.pause();
+          }
+        });
+      },
+      { rootMargin: "300px" }
+    )
+    : null;
+function LazyVideos() {
+  $("video[data-autoplay]").each(function () {
+    if (lazyVideoObserver) {
+      lazyVideoObserver.observe(this);
+    } else {
+      PlayVideo(this);
+    }
+  });
+}
+
+// index game cards: preview video / gif only loads and plays on hover
+function LoadHoverPreviews() {
+  $(".game-tab")
+    .on("mouseenter", function () {
+      $(this)
+        .find("img.behind-splash[data-src]")
+        .each(function () {
+          this.src = this.dataset.src;
+          this.removeAttribute("data-src");
+        });
+      const video = $(this).find("video.behind-splash")[0];
+      if (video) PlayVideo(video);
+    })
+    .on("mouseleave", function () {
+      const video = $(this).find("video.behind-splash")[0];
+      if (video) video.pause();
+    });
+}
+
 $(() => {
+  LazyVideos();
+
   $("._footer").load("/master_htmls/footer.html", function () {
     $(".back-to-top")
       .load("/master_htmls/back-to-top.html")
@@ -49,7 +102,6 @@ $(() => {
   // mobile header
   var prevScrollpos = window.scrollY;
   var headerDiv = document.querySelector("header");
-  // var headerBottom = headerDiv.offsetTop + headerDiv.offsetHeight + 200;
   window.onscroll = function () {
     var onMobile = window.matchMedia("(max-width: 1319px)").matches;
     // back to top
@@ -76,7 +128,7 @@ $(() => {
     // mobile header
     if (onMobile) {
       var currentScrollPos = window.scrollY;
-      if (prevScrollpos > currentScrollPos || currentScrollPos < headerBottom) {
+      if (prevScrollpos > currentScrollPos) {
         if (!isHeaderAnimating) {
           dHeader(100);
         }
@@ -194,17 +246,31 @@ function GamePageSetup(left, right) {
 
 function GamePageTabs(htmlList) {
   const gamePostButtons = $(".game-pages-nav-button").toArray();
-  let allPages = "";
+  // no sub-pages: content is written inline in #game-content, leave it alone
+  if (htmlList.length == 0) {
+    return;
+  }
+  // one slot per page, so each page is inserted once and in order
+  $("#game-content").html(
+    htmlList
+      .map((_, i) => `<div class='game-page-${i}${i == 0 ? "" : " d-none"}'></div>`)
+      .join("")
+  );
+  let pagesDone = 0;
   $.each(htmlList, function (i, pg) {
     $.get(
       pg,
       function (text) {
-        allPages += `<div class='game-page-${i} d-none'>` + text + "</div>";
-        $("#game-content").html(allPages);
-        $(`.game-page-0`).removeClass("d-none");
+        $(`.game-page-${i}`).html(text);
+        LazyVideos();
       },
       "html"
-    );
+    ).always(function () {
+      pagesDone++;
+      if (pagesDone == htmlList.length) {
+        LoadSvgs();
+      }
+    });
   });
 
   $(gamePostButtons[0])
@@ -234,7 +300,6 @@ function GamePageTabs(htmlList) {
 
 function LoadGameTabs() {
   const gameTabs = $(".game-tab").toArray();
-  console.log(gameTabs);
 
   let time = 0;
   var doLoad = setTimeout(() => {

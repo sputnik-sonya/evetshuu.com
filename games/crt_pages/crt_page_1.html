@@ -36,29 +36,11 @@
 </p>
 <div class="row">
   <div class="col-12 col-xl-6 d-flex flex-column">
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/iUbCckBnE-g?si=Y4cC9oYScsNT0e8b"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube videoid="iUbCckBnE-g"></lite-youtube>
     <cap>Classic</cap>
   </div>
   <div class="col-12 col-xl-6 d-flex flex-column">
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/H3vJd9ptPM8?si=YBqWVherQGYnLiwe"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube videoid="H3vJd9ptPM8"></lite-youtube>
     <cap>New</cap>
   </div>
 </div>
@@ -86,16 +68,7 @@
     style="border-right: 1px solid var(--color-g)"
   >
     <h4>Rewind</h4>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/MyJPihHB2xs?si=yc8CFyfrqw5inZF0"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube videoid="MyJPihHB2xs"></lite-youtube>
     <cap>First rewind starts at <r>00:35</r></cap>
     <p>To achieve rewind, I am storing the following:</p>
     <ul>
@@ -117,16 +90,7 @@
   </div>
   <div class="col-12 col-xl-6 d-flex flex-column justify-content-start">
     <h4><s>Fast Forward</s> Skip</h4>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/JUZNqz3pZtA?si=6ZsYlkNsnY7YSPls"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube videoid="JUZNqz3pZtA"></lite-youtube>
     <cap>First skip happens at <r>00:06</r></cap>
     <p>
       Enemy now has a collider ball attached to the front of it. When that
@@ -154,13 +118,14 @@
   <hr />
   <div class="col-12 col-xl-6 d-flex flex-column justify-content-end">
     <img
+      loading="lazy"
       style="width: 100%"
       src="/images/games/project_e/rewindskipsettings.jpg"
     />
     <cap>Rewind & skip parameters are adjustable.</cap>
   </div>
   <div class="col-12 col-xl-6 d-flex flex-column justify-content-end">
-    <img style="width: 100%" src="/images/games/project_e/enemyforecast.png" />
+    <img loading="lazy" style="width: 100%" src="/images/games/project_e/enemyforecast.png" />
     <cap>Forecast collider which triggers the skip.</cap>
   </div>
 </div>

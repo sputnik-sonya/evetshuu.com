@@ -1,15 +1,6 @@
 <div>
   <h3>Enemy Statemachine</h3>
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/fN1aVeZBa0s?si=6li0lr5QZTmkV6Lh"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-  ></iframe>
+  <lite-youtube videoid="fN1aVeZBa0s"></lite-youtube>
   <p>
     There is an enemy known as the <em>entity</em> that tracks and follows
     player around as they explore. The brain of the enemy AI is driven by a
@@ -42,16 +33,7 @@
   <div class="indent">
     <hr />
     <h4>Tracking</h4>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/BpUplM7TE7o?si=XUswgVhk6Pfh3Op-"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube videoid="BpUplM7TE7o"></lite-youtube>
     <p>
       When the player leaves the active detection (line of sight + detection
       cone), the AI begins to
@@ -63,7 +45,7 @@
     </p>
     <hr />
     <h4>Vision</h4>
-    <img style="width: 100%" src="/images/games/project_e/enemyvision.jpg" />
+    <img loading="lazy" style="width: 100%" src="/images/games/project_e/enemyvision.jpg" />
     <p>
       One more thing to mention is that the enemy operates on a vision cone that
       has a set range. Player is only detected within this range.
